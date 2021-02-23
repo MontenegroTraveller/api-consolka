@@ -1,7 +1,6 @@
 import React from 'react';
 import {useField} from 'react-final-form';
 
-
 export function Input(props: any) {
   const {
     input,

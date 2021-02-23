@@ -1,8 +1,11 @@
 import React from "react"
+import NavPanel from "./NavPanel"
 
 const ConsolePage: React.FC = () => {
   return (
-    <div>Here is Console Page</div>
+    <div className="console-app">
+      <NavPanel />
+    </div>
   )
 }
 

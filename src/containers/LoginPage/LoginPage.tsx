@@ -47,7 +47,7 @@ const LoginPage: React.FC = (props: any) => {
                 <label className="login-form__label">Сублогин</label>
                 <label className="login-form__label__optional">Опционально</label>
               </div>
-              <Input type="text" className="login-form__input" name="subLogin" placeholder="sublogin-could-be-here" />
+              <Input type="text" className="login-form__input" name="sublogin" placeholder="sublogin-could-be-here" />
             </div>
             <div className="login-form__element-block">
               <div className="login-form__label-block">

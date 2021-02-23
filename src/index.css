@@ -42,10 +42,11 @@ code {
 }
 
 .logo {
-  margin-bottom: 20px
+  height: 30px;
 }
 
 .login-form {
+  margin-top: 20px;
   width: 520px;
   height: 425px;
   left: calc(50% - 520px / 2);
@@ -112,4 +113,66 @@ code {
   color: white;
   font-size: 16px;
   font-weight: 500;
+}
+
+/* CONSOLE APP */
+
+.console-app {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F6F6F6;
+  height: 50px;
+  margin: 0px 0px;
+  padding: 10px 16px 10px 15px;
+}
+
+.nav-bar__left-block {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar__rigth-block {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar__logout-block {
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
+}
+
+.nav-bar__title {
+  margin-left: 20px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.user-bar__user-info {
+  padding: 5px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.user-bar__user-info__has-sublogin {
+  margin: 0 5px;
+  color: rgba(0, 0, 0, 0.2);
+
+}
+
+.nav-bar__logout-button {
+  margin-right: 10px;
+  font-size: 16px;
+  border: none;
+  background: #F6F6F6;
+
 }
