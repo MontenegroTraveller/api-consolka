@@ -54,6 +54,7 @@ code {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 40px 30px;
+  border: solid white;
 }
 
 .login-form__h1 {
