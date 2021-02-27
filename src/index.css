@@ -174,5 +174,8 @@ code {
   font-size: 16px;
   border: none;
   background: #F6F6F6;
+}
 
+.track-bar {
+  display: flex;
 }

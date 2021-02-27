@@ -3,10 +3,11 @@ import createSagaMiddleware from 'redux-saga';
 import {persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import rootReducer from 'src/store/reducers/index';
-import rootSaga from 'src/store/sagas/index';
+import rootReducer from './reducers/index';
+import rootSaga from './sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
+
 const persistConfig = {
   key: 'root',
   storage,
@@ -28,6 +29,7 @@ function configureStore(initialState = {}) {
     initialState,
     bindMiddleware([sagaMiddleware])
   );
+
   let persistor = persistStore(store);
 
   store.runSagaTask = () => {

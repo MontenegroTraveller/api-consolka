@@ -3,13 +3,14 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import createStore from 'src/store';
-import LoginPage from 'src/containers/LoginPage/LoginPage';
-import ConsolePage from 'src/containers/ConsolePage/ConsolePage';
+import createStore from './store';
+
+import LoginPage from './components/LoginPage/LoginPage';
+import ConsolePage from './components/ConsolePage/ConsolePage';
 
 const {store, persistor} = createStore();
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Provider store={store}>

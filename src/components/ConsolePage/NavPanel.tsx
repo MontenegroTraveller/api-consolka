@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useSelector} from 'react-redux';
+import { useSelector} from 'react-redux';
 
 const NavPanel: React.FC = () => {
   const login = useSelector((state: any) => state.auth.login);

@@ -1,14 +1,19 @@
 import React, {useEffect} from 'react';
 import {withRouter} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import validator from 'validator';
+import {History} from 'history';
 
 import {Form} from './form';
 import {Input} from './input';
 import {authenticate} from '../../store/actions/auth';
+import {validateLogin, validatePassword} from './validation';
 
-const LoginPage: React.FC = (props: any) => {
-  const { history } = props
+interface LoginPageProps {
+  history: History
+}
+
+const LoginPage: React.FC<LoginPageProps> = (props) => {
+  const {history} = props;
   const dispatch = useDispatch();
   const loading = useSelector((state: any) => state.auth.loading);
   const isLoggedIn = useSelector((state: any) => !!state.auth.sessionKey?.length);
@@ -21,14 +26,14 @@ const LoginPage: React.FC = (props: any) => {
   }, [isLoggedIn]);
 
   const onSubmit = (values: any) => {
-    dispatch(authenticate(values))
+    dispatch(authenticate(values));
   };
 
   return (
     <div className="wrapper">
       <img className="logo" src="/icons/logo.svg" alt="logo" />
       <Form onSubmit={onSubmit}>
-        {(props: any) => (
+        {() => (
           <>
             <div className="login-form__element-block">
               <div className="login-form__label-block">
@@ -39,7 +44,7 @@ const LoginPage: React.FC = (props: any) => {
                 className="login-form__input"
                 name="login"
                 placeholder="iamyourlogin@domain.xyz"
-                validate={(v: string) => !validator.isEmail(v || '') && 'Please Enter a Valid Email!'}
+                validate={validateLogin}
               />
             </div>
             <div className="login-form__element-block">
@@ -53,7 +58,7 @@ const LoginPage: React.FC = (props: any) => {
               <div className="login-form__label-block">
                 <label className="login-form__label">Пароль</label>
               </div>
-              <Input type="password" className="login-form__input" name="password" placeholder="********" />
+              <Input type="password" className="login-form__input" name="password" placeholder="********" validate={validatePassword} />
             </div>
             <div>
               <button type="submit" className="buttons">
