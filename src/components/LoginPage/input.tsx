@@ -13,15 +13,13 @@ interface InputProps {
 export function Input(props: InputProps) {
   const {
     input,
-    meta: {error, touched, submitError},
   } = useField(props.name, {
     initialValue: props.initialValue,
   });
 
   const inputProps = {
     ...props,
-    error: touched && error && true,
-    ...input,
+    ...input
   };
 
   return (

@@ -81,12 +81,16 @@ code {
 }
 
 .login-form__label {
-  font-size: 16px;
+  color: black
 }
 
 .login-form__label__optional {
   font-size: 12px;
   color: #999999;
+}
+
+.login-form__label__no-valid {
+  color: red
 }
 
 .login-form__input {
@@ -217,6 +221,72 @@ code {
   background: #F6F6F6;
 }
 
-.track-bar {
+/* History Bar */
+
+.history-bar {
   display: flex;
+  align-items: center;
+  background: #F6F6F6;
+  height: 50px;
+  margin: 0px 0px;
+  padding: 10px 16px 10px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2)
 }
+
+.element-block {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 10px
+}
+
+.element-block__span {
+  margin: 0 10px 0 5px;
+}
+
+/* Querry Board */
+
+.querry-board {
+  background: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  height: 80vh;
+  padding: 10px 15px 15px 15px;
+}
+
+.request-block {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  position: relative;
+}
+
+.response-block {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.request-block__info-field {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.response-block__info-field {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 96%;
+}
+
+.querry-board__dots {
+  position: absolute;
+  height: 18px;
+  right: 0;
+  bottom: 50%;
+  padding-right: 2.5px;
+}
+

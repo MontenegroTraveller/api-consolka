@@ -21,11 +21,12 @@ interface FormCredentials {
 }
 
 interface CredentialVerification {
-  currentLogin: boolean;
-  currentPassword: boolean;
+  currentLogin?: boolean;
+  currentPassword?: boolean;
 }
 
 const LoginPage: React.FC<LoginPageProps> = (props) => {
+
   const initialState = {currentLogin: true, currentPassword: true};
   const [isCorrectLoginCredentials, setIsCorrectLoginCredentials] = useState<CredentialVerification>(initialState);
 
@@ -33,6 +34,7 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
   const dispatch = useDispatch();
   const loading = useSelector((state: any) => state.auth.loading);
   const isLoggedIn = useSelector((state: any) => !!state.auth.sessionKey?.length);
+
   console.log('loading', loading);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
   }, [isLoggedIn]);
 
 
-  const onSubmit = async(values: FormCredentials) => {
+  const onSubmit = (values: FormCredentials) => {
 
     if (values.login) {
       const isLoginCorrect = validateLogin(values.login);
@@ -65,12 +67,13 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
     if (!values.login && !values.password) {
       setIsCorrectLoginCredentials((prev) => ({...prev, currentLogin: false, currentPassword: false}));
     }
-
-    if(!!values.login && !!values.password && isCorrectLoginCredentials.currentLogin && isCorrectLoginCredentials.currentPassword) {
-
-     await dispatch(authenticate(values));
+    try {
+      if (values.login && values.password && isCorrectLoginCredentials.currentLogin && isCorrectLoginCredentials.currentPassword) {
+        dispatch(authenticate(values));
+      }
+    } catch(e) {
+      console.log(e);
     }
-
   };
 
   return (
@@ -81,7 +84,9 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
           <>
             <div className="login-form__element-block">
               <div className="login-form__label-block">
-                <label className="login-form__label">Логин</label>
+                <label className={isCorrectLoginCredentials.currentLogin ? 'login-form__label' : 'login-form__label__no-valid'}>
+                  Логин
+                </label>
               </div>
               <Input
                 type="text"
@@ -99,7 +104,9 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
             </div>
             <div className="login-form__element-block">
               <div className="login-form__label-block">
-                <label className="login-form__label">Пароль</label>
+                <label className={isCorrectLoginCredentials.currentPassword ? 'login-form__label' : 'login-form__label__no-valid'}>
+                  Пароль
+                </label>
               </div>
               <Input
                 type="password"
@@ -118,7 +125,7 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
                 className={props.submitting || props.pristine ? 'buttons buttons__login-form__disabled' : 'buttons'}
                 disabled={props.submitting || props.pristine}
               >
-                {loading ? <img src={loader} alt="loader-logo"/> : "Войти"}
+                {loading ? <img src={loader} alt="loader-logo" /> : 'Войти'}
               </button>
             </div>
           </>
