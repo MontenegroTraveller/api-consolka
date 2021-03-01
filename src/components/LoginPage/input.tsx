@@ -1,13 +1,21 @@
 import React from 'react';
 import {useField} from 'react-final-form';
 
-export function Input(props: any) {
+interface InputProps {
+  type: "text" | "password"
+  name: string;
+  initialValue?: string;
+  className?: string
+  placeholder?: string
+  validate?: (text: string) => void
+}
+
+export function Input(props: InputProps) {
   const {
     input,
     meta: {error, touched, submitError},
   } = useField(props.name, {
     initialValue: props.initialValue,
-    validate: props.validate,
   });
 
   const inputProps = {

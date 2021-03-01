@@ -7,7 +7,7 @@ export function Form(props: any) {
       <h1 className="login-form__h1">API-консолька</h1>
       <FinalForm
         onSubmit={props.onSubmit}
-        render={(renderProps) => <form onSubmit={renderProps.handleSubmit}>{props.children(renderProps)}</form>}
+        render={(renderProps: any) => <form onSubmit={renderProps.handleSubmit}>{props.children(renderProps)}</form>}
       />
     </div>
   );
