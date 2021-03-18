@@ -10,7 +10,7 @@ const NavPanel: React.FC = () => {
     <div className="nav-bar">
       <div className="nav-bar__left-block">
         <img className="logo" src="/icons/logo.svg" alt="logo" />
-        <p className="nav-bar__title">Консолька</p>
+        <p className="nav-bar__title">Api-Консолька</p>
       </div>
       <div className="nav-bar__rigth-block">
         <div className="user-bar__user-info">
