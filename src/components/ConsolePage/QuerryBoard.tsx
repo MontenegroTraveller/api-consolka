@@ -24,11 +24,11 @@ const QuerryBoard: React.FC = () => {
             topLeft: false,
           }}
           minWidth={200}
-          maxWidth={"80vw"}
+          maxWidth={'80vw'}
         >
-          Sample with default size
+          <input className="request-block__input" type="text" placeholder="Your querry" />
         </Resizable>
-        <img className="querry-board__dots" src={dots} alt="resizing dots" />
+        <img className="querry-board__dots" src={dots} alt="resizing dots"/>
       </div>
       <div className="response-block">
         <span>Ответ:</span>

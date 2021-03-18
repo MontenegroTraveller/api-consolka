@@ -290,3 +290,13 @@ code {
   padding-right: 2.5px;
 }
 
+.request-block__input {
+  text-align: start;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
